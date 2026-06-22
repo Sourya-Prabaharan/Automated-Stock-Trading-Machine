@@ -1,0 +1,66 @@
+# Demo Output
+
+This document shows the actual output from running the backtesting engine against a simulated dataset of AAPL prices.
+
+The system was executed using the following command:
+
+```bash
+# Build the system
+mkdir build && cd build
+cmake ..
+make
+
+# Run the SMA strategy
+./trading_engine ../data/sample_prices.csv --strategy sma
+
+# Run the RSI strategy
+./trading_engine ../data/sample_prices.csv --strategy rsi
+```
+
+## Output
+
+```text
+Loading market data from data/sample_prices.csv...
+Loaded 260 price bars.
+Running backtest with SMA Crossover (10/30)...
+
+==================================================
+BACKTEST RESULTS: SMA Crossover (10/30)
+==================================================
+Initial Capital:  $100000.00
+Final Value:      $100761.46
+Total Return:     0.76%
+Annualized Ret:   0.74%
+Max Drawdown:     2.19%
+Sharpe Ratio:     0.31
+
+Trade Statistics:
+Total Trades:     4
+Winning Trades:   3
+Losing Trades:    1
+Win Rate:         75.00%
+Profit Factor:    1.97
+==================================================
+
+Loading market data from data/sample_prices.csv...
+Loaded 260 price bars.
+Running backtest with RSI Mean Reversion (14)...
+
+==================================================
+BACKTEST RESULTS: RSI Mean Reversion (14)
+==================================================
+Initial Capital:  $100000.00
+Final Value:      $100944.17
+Total Return:     0.94%
+Annualized Ret:   0.91%
+Max Drawdown:     2.93%
+Sharpe Ratio:     0.40
+
+Trade Statistics:
+Total Trades:     2
+Winning Trades:   1
+Losing Trades:    1
+Win Rate:         50.00%
+Profit Factor:    2.90
+==================================================
+```
