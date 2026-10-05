@@ -48,3 +48,7 @@ lib/
 # We want to track the sample_prices.csv but ignore other data
 data/*.csv
 !data/sample_prices.csv
+
+# Vercel
+.vercel/
+

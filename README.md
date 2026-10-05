@@ -1,5 +1,6 @@
 # C++ Algorithmic Trading Engine
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-sourya--trading--engine.vercel.app-10b981?style=for-the-badge&logo=vercel)](https://sourya-trading-engine.vercel.app)
 ![C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)
 ![CMake](https://img.shields.io/badge/CMake-3.16+-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-purple.svg)
@@ -7,6 +8,25 @@
 A lightweight, high-performance backtesting engine for quantitative trading strategies, written entirely in modern C++17 with zero external dependencies.
 
 I built this project to deepen my understanding of systems engineering, memory management, and financial software design. It demonstrates how to architect a modular system that cleanly separates data ingestion, strategy execution, state management, and post-trade analytics.
+
+## 🌐 Live Interactive Web Demo
+
+👉 **Live Demo Site**: **[https://sourya-trading-engine.vercel.app](https://sourya-trading-engine.vercel.app)**
+
+A modern, high-polish interactive demo site is deployed and available locally in [`demo/`](demo/index.html) to showcase the engine's quantitative modeling and architecture without needing to compile C++ locally:
+
+- **Interactive Strategy Workbench**: Run real-time backtests on **SMA Crossover**, **RSI Mean Reversion**, **Bollinger Bands**, and **MACD Momentum** with customizable capital, commission rates, and position sizing.
+- **Streaming Live Visualizer**: Stream simulated bars sequentially at 1x–10x playback speed with play/pause and single-step inspection.
+- **Institutional Quant Dashboard**: Live institutional metrics including Annualized Return, Sharpe Ratio, Sortino Ratio, Maximum Drawdown, Profit Factor, Win Rate, and Expectancy.
+- **Retina Canvas Charts**: Custom high-DPI Candlestick & Indicator charts with interactive crosshair HUD, Buy/Sell execution markers, and underwater drawdown curve.
+- **C++ CLI Terminal Emulator**: Interactive terminal simulating binary execution (`./trading_engine`, `ctest`, `make`) right in the browser.
+- **Architecture & Systems Inspector**: Click-to-inspect component explorer explaining memory management, lookahead prevention, and cache locality.
+
+```bash
+# View the interactive demo locally:
+python3 -m http.server 8088 --directory demo
+# Then open http://localhost:8088 in your browser, or directly open demo/index.html
+```
 
 ## System Architecture
 
