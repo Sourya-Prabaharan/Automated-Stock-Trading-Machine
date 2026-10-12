@@ -1,6 +1,6 @@
 /**
  * Titan Quant Engine - Client-Side Simulation Core
- * Bit-for-bit algorithmic port of the C++17 Trading Engine
+ * JavaScript demonstration inspired by the C++17 Trading Engine; parity is not guaranteed
  * 
  * Features:
  * - Deterministic sequential evaluation (zero lookahead bias)
