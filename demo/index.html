@@ -16,7 +16,7 @@
       <div class="ticker-item">
         <span class="pulse-dot"></span>
         <span class="ticker-symbol">ENGINE STATUS:</span>
-        <span class="ticker-tag tag-success">C++17 DETERMINISTIC • 500k BARS/SEC</span>
+        <span class="ticker-tag tag-success">JAVASCRIPT DEMO • NATIVE C++ SOURCE AVAILABLE</span>
       </div>
       <div class="ticker-item">
         <span class="ticker-symbol">AAPL 2023:</span>
@@ -36,8 +36,8 @@
     </div>
     <div class="ticker-right">
       <div class="ticker-item">
-        <span class="ticker-symbol">LOOKAHEAD BIAS:</span>
-        <span class="ticker-tag tag-success">STRICTLY 0% (t &le; T)</span>
+        <span class="ticker-symbol">SIGNAL INPUT:</span>
+        <span class="ticker-tag tag-success">CURRENT AND PAST BARS</span>
       </div>
       <div class="ticker-item">
         <span class="ticker-symbol">DEPENDENCIES:</span>
@@ -70,9 +70,9 @@
           <span>Candidate: <strong>Sourya Prabaharan</strong></span>
         </div>
 
-        <button class="btn btn-primary" id="btn-copy-recruiter" title="Copy bulleted candidate evaluation notes for recruiter screening">
+        <button class="btn btn-primary" id="btn-copy-recruiter" title="Copy project scope and source link">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-          Copy Recruiter Summary
+          Copy Project Summary
         </button>
 
         <a href="#section-code" class="btn btn-secondary">
@@ -94,13 +94,13 @@
       <div class="hero-left">
         <h2>Designed for Quantitative Engineering &amp; Systems Rigor</h2>
         <p>
-          A modular, institutional-grade quantitative backtesting platform written entirely in <strong>modern C++17</strong> with <strong>zero external dependencies</strong>. Built to explore systems software architecture, deterministic sequential execution, cache locality, and realistic financial friction modeling.
+          A modular, educational quantitative backtesting platform written entirely in <strong>modern C++17</strong> with <strong>zero external dependencies</strong>. Built to explore systems software architecture, deterministic sequential execution, cache locality, and realistic financial friction modeling.
         </p>
         <div class="hero-tech-badges">
           <span class="tech-badge cyan">⚡ C++17 Standard Library</span>
-          <span class="tech-badge emerald">🔒 Zero Lookahead Bias</span>
+          <span class="tech-badge emerald">🔒 Historical Indicators</span>
           <span class="tech-badge emerald">💰 0.1% Trade Commission Model</span>
-          <span class="tech-badge amber">📊 Institutional Sharpe &amp; Drawdown</span>
+          <span class="tech-badge amber">📊 Portfolio Sharpe &amp; Drawdown</span>
           <span class="tech-badge">🛠️ CMake &amp; CTest Verified</span>
         </div>
       </div>
@@ -108,11 +108,11 @@
       <div class="hero-right">
         <div class="hero-stat-row">
           <span class="stat-label">Throughput</span>
-          <span class="stat-val text-emerald">&gt; 500,000 bars/sec</span>
+          <span class="stat-val text-emerald">Not benchmarked</span>
         </div>
         <div class="hero-stat-row">
           <span class="stat-label">Heap Allocation</span>
-          <span class="stat-val text-cyan">0 allocs in hot loop</span>
+          <span class="stat-val text-cyan">Not profiled</span>
         </div>
         <div class="hero-stat-row">
           <span class="stat-label">Concurrency Model</span>
@@ -484,17 +484,17 @@
             Why Single-Threaded Backtesting?
           </h4>
           <p>
-            Historical backtesting is strictly sequential: you cannot know day <em>T+1</em> before day <em>T</em>. Multi-threading in backtesting introduces non-determinism, race conditions, and heavy lock contention. A single-threaded loop traversing contiguous vectors leverages L1/L2 CPU cache locality, yielding over 500,000 bars/sec with 100% reproducible results.
+            Historical backtesting is strictly sequential: you cannot know day <em>T+1</em> before day <em>T</em>. Multi-threading in backtesting introduces non-determinism, race conditions, and heavy lock contention. A single-threaded loop traversing contiguous vectors leverages L1/L2 CPU cache locality, with explicit state updates. Native throughput has not been benchmarked.
           </p>
         </div>
 
         <div class="qa-card">
           <h4>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            Eliminating Lookahead Bias
+            Historical-data assumptions
           </h4>
           <p>
-            A common bug in quant systems is accidental peeking at future price data. In this engine, <code>Strategy::evaluate(index, data)</code> and the <code>Indicators</code> namespace strictly compute statistics using indices &le; <code>index</code>, guaranteeing that trading decisions rely exclusively on past observations.
+            A common bug in quant systems is accidental peeking at future price data. In this engine, <code>Strategy::evaluate(index, data)</code> and the <code>Indicators</code> namespace strictly compute statistics using indices &le; <code>index</code>, for the built-in strategies. Custom strategies receive the full data vector and must avoid future data; same-close execution remains a modeling assumption.
           </p>
         </div>
 
@@ -520,6 +520,7 @@
       </div>
     </section>
 
+    <p>Simulation only: the terminal prints scripted examples. It does not execute C++, build tools, or tests.</p>
     <!-- Side-by-Side C++ Terminal Emulator & Code Viewer -->
     <section class="section-card" id="section-code">
       <div class="section-header">
@@ -666,9 +667,9 @@ BacktestResult Backtester::run(const std::vector<PriceBar>& data, Strategy& stra
 
   </main>
 
-  <!-- Copy Recruiter Summary Toast Notification -->
+  <!-- Copy Project Summary Toast Notification -->
   <div class="toast" id="copy-toast">
-    ✓ Recruiter Evaluation Summary copied to clipboard!
+    ✓ Project summary copied to clipboard!
   </div>
 
   <!-- Footer -->
@@ -678,7 +679,7 @@ BacktestResult Backtester::run(const std::vector<PriceBar>& data, Strategy& stra
         <strong>Automated Stock Trading Machine</strong> — Developed by <strong>Sourya Prabaharan</strong>
       </div>
       <div>
-        Built with Modern C++17 • Clean Architecture • Open Source MIT License
+        JavaScript browser demonstration • C++17 engine source • License not specified
       </div>
       <div>
         <a href="https://github.com/Sourya-Prabaharan/Automated-Stock-Trading-Machine" target="_blank" rel="noopener noreferrer">View on GitHub</a>

@@ -156,7 +156,7 @@ Execution finished in 1.42ms (Cache hits: 100%, 0 heap allocs in hot loop).
   }
 
   simulateCTest() {
-    this.printLine(`Test project /Users/sourya/Projects/Automated Stock Trading System/build`);
+    this.printLine(`Test project example-checkout/build`);
     this.printLine(`      Start  1: TestCSVParser`);
     this.printLine(` 1/5 Test  #1: TestCSVParser .................... <span class="text-emerald font-bold">Passed</span>    0.01 sec`);
     this.printLine(`      Start  2: TestIndicators`);

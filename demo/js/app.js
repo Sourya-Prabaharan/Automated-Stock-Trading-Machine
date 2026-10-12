@@ -582,11 +582,11 @@ document.addEventListener("DOMContentLoaded", () => {
     "Backtester": {
       title: "Backtester (Deterministic Orchestration Loop)",
       source: "src/Backtester.cpp & include/Backtester.h",
-      complexity: "O(N) time, zero dynamic allocations in the hot loop",
-      desc: "The heartbeat of the algorithmic trading system. Sequentially evaluates bars one-by-one, strictly enforcing historical causality (t <= T) to completely eliminate lookahead bias.",
+      complexity: "Sequential traversal; cost depends on strategy and indicator windows",
+      desc: "The heartbeat of the algorithmic trading system. Sequentially evaluates bars one-by-one, using built-in indicators through the current bar. Custom strategies must avoid reading future data.",
       keyFeatures: [
         "100% Deterministic single-threaded execution (no race conditions)",
-        "Zero mutex locking overhead: processes >500,000 bars/sec",
+        "Sequential simulation loop; native throughput is not benchmarked",
         "Sizes positions based on available cash and executes fills at exact bar close"
       ]
     },
@@ -613,10 +613,10 @@ document.addEventListener("DOMContentLoaded", () => {
       ]
     },
     "RiskMetrics": {
-      title: "RiskMetrics (Institutional Analytics Engine)",
+      title: "RiskMetrics (Portfolio Analytics)",
       source: "src/RiskMetrics.cpp & include/RiskMetrics.h",
       complexity: "O(N) post-hoc analytics pass",
-      desc: "Calculates institutional quantitative metrics on the backtest equity curve and trade history for comprehensive risk assessment.",
+      desc: "Calculates portfolio metrics on the backtest equity curve and trade history for comprehensive risk assessment.",
       keyFeatures: [
         "Annualized Sharpe Ratio: mean return / std dev * sqrt(252)",
         "Continuous high-water mark peak tracking for Maximum Drawdown & duration",
@@ -917,18 +917,12 @@ BacktestMetrics RiskMetrics::calculate(double initial_capital,
   // Recruiter Summary Copy
   if (btnCopyRecruiter) {
     btnCopyRecruiter.addEventListener("click", () => {
-      const summaryText = `Candidate: Sourya Prabaharan
-Project: High-Performance C++ Algorithmic Trading & Backtesting Engine
-Tech Stack: Modern C++17, CMake, Zero External Dependencies, CTest
-
-Key Highlights for Interview / Screening:
-• Engineered a deterministic, cache-locality optimized quantitative backtesting engine in pure C++17.
-• Designed clean modular architecture: MarketDataLoader (data ingestion), Strategy (polymorphic evaluate interface), Portfolio (discrete accounting state machine), RiskMetrics (Sharpe, Sortino, Max Drawdown).
-• Completely eliminated lookahead bias and multithreaded non-determinism via sequential bar evaluation.
-• Accurately accounts for realistic market friction: 0.1% trade commissions, cash constraint validation, average entry price calculations.
-• Developed custom unit test suite with CTest achieving 100% pass rate.
-• Processes 500,000+ price bars per second with zero dynamic heap allocations in the critical simulation loop.
-GitHub Repo: Sourya-Prabaharan/Automated-Stock-Trading-Machine`;
+      const summaryText = `Project: C++17 Historical Backtesting Engine
+SMA and RSI strategies, commission accounting, cash-constrained positions, and portfolio risk metrics.
+CMake builds the engine and five CTest targets.
+The browser runs a separate JavaScript demonstration, including extra strategies and a scripted terminal.
+Native throughput and allocation counts have not been benchmarked.
+GitHub: https://github.com/Sourya-Prabaharan/Automated-Stock-Trading-Machine`;
 
       navigator.clipboard.writeText(summaryText).then(() => {
         if (copyToast) {
